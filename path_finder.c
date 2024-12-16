@@ -1,5 +1,41 @@
 #include "main.h"
 
+/**
+ * path_finder - Resolves the full path of a command.
+ *
+ * @cmd: The command to find.
+ * @work_buffer: A buffer to store the resolved path.
+ *
+ * This function checks if the command specified by `cmd` is an absolute path
+ * or a relative path (e.g., "./", "../"). If it is, and it exists, it directly
+ * returns `EXIT_SUCCESS`. Otherwise, it searches through directories listed in
+ * the PATH environment variable to locate the command.If the command is found,
+ * it stores the full path in work_buffer and returns `EXIT_SUCCESS`.Otherwise,
+ * it returns `EXIT_FAILURE`.
+ *
+ * Return:
+ *   -EXIT_SUCCESS: If the command was found and its path resolved successfully
+ *   -EXIT_FAILURE: If the command is not found or if any error occurs during
+ *     path resolution.
+ *
+ * Notes:
+ *   -The function uses `strtok` to split the `PATH` environment variable into
+ *     individual directory tokens.
+ *   -The function assumes that `cmd` is a valid, non-NULL string.
+ *   -Memory for `var_path` and `work_buffer` is dynamically allocated and must
+ *     be freed by the caller.
+ *   -The function assumes the presence of a valid `PATH` environment variable.
+ *   -The file_checker function is used to check if the constructed path exists
+ *
+ * Example:
+ *   char work_buffer[1024];
+ *   int status = path_finder("ls", work_buffer);
+ *   if (status == EXIT_SUCCESS)
+ *       printf("Found: %s\n", work_buffer);
+ *   else
+ *       printf("Command not found.\n");
+ *
+ */
 int path_finder(char *cmd, char *work_buffer)
 {
 	char *token;
