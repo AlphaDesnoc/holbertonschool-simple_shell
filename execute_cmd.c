@@ -1,5 +1,51 @@
 #include "main.h"
 
+/**
+ * execute_cmd - Executes a command provided as an argument array.
+ *
+ * @argv: A null-terminated array of strings, where the first element is the
+ *        command to execute, and subsequent elements are its arguments.
+ *
+ * This function attempts to execute a command by:
+ *   1. Allocating a work buffer to hold the resolved command path.
+ *   2. Checking if the command exists and resolving its path using path_finder
+ *   3. Creating a child process using `fork`.
+ *   4. In the child process, attempting to execute the command with `execve`.
+ *   5. In the parent process, waiting for the child process to terminate and
+ *      returning its exit status.
+ *
+ * If any step fails (e.g., memory allocation, command resolution, forking, or
+ * execution) the function handles errors and returns appropriate failure codes
+ *
+ * Return:
+ *   - On success: The exit status of the executed command.
+ *   - On failure:
+ *       - 127 if the command is not found.
+ *       - EXIT_FAILURE (commonly 1) if memory allocation, forking, or other
+ *         internal errors occur.
+ *
+ * Notes:
+ *   - The `path_finder` function is expected to resolve the full path of the
+ *     command and store it in the provided buffer (`work_buffer`).
+ *   - The child process exits immediately upon encountering an error,returning
+ *     127 for a "command not found" scenario or EXIT_FAILURE for other errors.
+ *   - The function assumes `environ` is globally available.
+ *
+ * Example:
+ *   char *args[] = { "ls", "-l", "/home", NULL };
+ *   int status = execute_cmd(args);
+ *   if (status == 127)
+ *       fprintf(stderr, "Command not found.\n");
+ *   else if (status != 0)
+ *       fprintf(stderr, "Command execution failed with status %d.\n", status);
+ *
+ * Caveats:
+ *   - The function assumes `path_finder` correctly resolves the command path.
+ *   - The work buffer size (1024 bytes) may be insufficient for some commands,
+ *     potentially causing truncation or errors.
+ *   - If a signal interrupts `wait`, the function may not handle it explicitly
+ *   - The `argv` array must be null-terminated and non-NULL.
+ */
 int execute_cmd(char **argv)
 {
 	pid_t child_pid;
