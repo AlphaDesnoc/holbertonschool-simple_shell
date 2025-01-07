@@ -74,3 +74,4 @@ int path_finder(char *cmd, char *work_buffer)
 	free(var_path);
 	return (EXIT_FAILURE);
 }
+

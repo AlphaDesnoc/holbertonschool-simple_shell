@@ -36,3 +36,4 @@ int file_checker(char *file)
 
 	return (EXIT_FAILURE);
 }
+

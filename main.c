@@ -77,3 +77,4 @@ int main(void)
 	free(input_buffer);
 	return (ret);
 }
+
