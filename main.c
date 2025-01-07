@@ -1,6 +1,5 @@
 #include "main.h"
 
-<<<<<<< micka
 /**
  * main - Entry point of the shell program.
  *
@@ -77,9 +76,4 @@ int main(void)
 	} while (1);
 	free(input_buffer);
 	return (ret);
-=======
-int main(void)
-{
-return (0);
->>>>>>> staging
 }
