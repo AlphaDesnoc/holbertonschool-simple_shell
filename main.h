@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+<<<<<<< micka
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,4 +21,6 @@ void print_env(void);
 int _error(void);
 char *_getenv(const char *name);
 
+=======
+>>>>>>> staging
 #endif
