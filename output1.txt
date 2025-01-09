@@ -1,0 +1,11 @@
+_error.c
+_getenv.c
+execute_cmd.c
+file_checker.c
+hsh
+main.c
+main.h
+output1.txt
+path_finder.c
+print_env.c
+token_args.c
