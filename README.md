@@ -40,7 +40,7 @@ To compile and run this shell, you need:
 3. Compile the program:
 
     ```bash
-    gcc -Wall -Werror -Wextra -pedantic *.c -o simple_shell
+    gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
     ```
 
 ## Usage
@@ -49,13 +49,13 @@ You can run the shell in two modes:
 
 ### Interactive Mode
    ```bash
-   ./simple_shell
+   ./hsh
    ```
 
 You should see a prompt where you can type commands:
 
    ```sh
-   $ ./simple_shell
+   $ ./hsh
    $ ls -l
    total 48
    -rw-r--r-- 1 user user  1373 Aug 20 10:10 README.md
@@ -67,7 +67,7 @@ You should see a prompt where you can type commands:
 In this mode, the shell reads commands from a file or pipe.
 
    ```bash
-   echo "ls -l" | ./simple_shell
+   echo "ls -l" | ./hsh
    ```
 
 ### Built-in Commands
@@ -81,7 +81,7 @@ The following built-in commands are supported:
 ### Exemple
 
    ```bash
-   $ ./simple_shell
+   $ ./hsh
    $ pwd
    /home/user/holbertonschool-simple_shell
    $ exit
