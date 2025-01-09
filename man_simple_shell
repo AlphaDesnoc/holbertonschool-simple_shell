@@ -1,0 +1,74 @@
+.TH hsh 1 "January 2025" "1.0" "Simple Shell Manual"
+.SH NAME
+hsh \- a simple command-line shell
+.SH SYNOPSIS
+.B hsh
+.RI [ script_file ]
+.SH DESCRIPTION
+.B hsh
+is a basic implementation of a Unix shell. It provides functionality for executing commands interactively or from scripts.
+
+The shell supports the following features:
+.IP \(bu
+Executing commands with arguments.
+.IP \(bu
+Displaying environment variables with the
+.B env
+command.
+.IP \(bu
+Exiting the shell with the
+.B exit
+command.
+.IP \(bu
+Resolving commands using the
+.B PATH
+environment variable.
+.IP \(bu
+Running non-interactive commands from pipes or scripts.
+
+.SH USAGE
+.TP
+.B Interactive Mode:
+Run the shell and type commands directly:
+.EX
+$ ./hsh
+$ ls -l
+$ env
+$ exit
+.EE
+
+.TP
+.B Non-interactive Mode:
+Pipe commands or run a script:
+.EX
+$ echo "ls -l" | ./hsh
+$ ./hsh script_file
+.EE
+
+.SH BUILT-IN COMMANDS
+.TP
+.B env
+Prints all environment variables.
+.TP
+.B exit
+Exits the shell. You can provide an optional exit code:
+.EX
+exit 0
+.EE
+
+.SH EXIT STATUS
+.B hsh
+exits with the status of the last executed command. If no commands are executed, it exits with status 0.
+
+.SH AUTHOR
+This project was developed as part of the ALX Software Engineering program.
+.SH BUGS
+Report bugs to: support@example.com
+.SH SEE ALSO
+.B bash(1),
+.B sh(1),
+.B execve(2),
+.B getenv(3),
+.B stat(2),
+.B strtok(3).
+
