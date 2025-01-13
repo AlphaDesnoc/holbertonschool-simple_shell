@@ -95,9 +95,9 @@ The following built-in commands are supported:
 - `file_checker.c`: Checks for file existence and permissions.
 - `path_finder.c`: Finds the full path of executables.
 - `print_env.c`: Handles the printing of environment variables.
-- `shell.c`: The main file containing the shell's core logic.
-- `shell.h`: Header file with function prototypes and necessary includes.
+- `main.c`: The main file containing the shell's core logic.
+- `main.h`: Header file with function prototypes and necessary includes.
 - `simple_shell`: The compiled executable of the simple shell program.
 - `simple_shell.1`: Man page for the simple shell, detailing its usage and features.
-- `tok_args.c`: Handles tokenization of command arguments.
+- `token_args.c`: Handles tokenization of command arguments.
 
